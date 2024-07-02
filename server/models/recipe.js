@@ -1,4 +1,4 @@
-//Basically defining the schema
+// defining the schema
 
 const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema ({
