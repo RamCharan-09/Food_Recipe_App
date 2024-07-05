@@ -4,6 +4,7 @@ const recipe = require('../models/recipe')
 
 exports.getAllRecipes = async(req, res) => {
     try{
+        console.log(req.user)
         const allRecipes = await recipe.find()
         return res.status(200).send(allRecipes)
     } catch (error) {

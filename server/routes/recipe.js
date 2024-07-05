@@ -1,13 +1,14 @@
 const express = require('express')
-const router = express.Router()
+const recipeRouter = express.Router()
 const recipeController = require('../controllers/recipe')
+const { authenticate } = require('../middlewares/authMiddleware')
 
-router.get('/', recipeController.getAllRecipes)
+recipeRouter.get('/', authenticate, recipeController.getAllRecipes)
 
-router.post('/', recipeController.createRecipe)
+recipeRouter.post('/', authenticate, recipeController.createRecipe)
 
-router.patch('/:id', recipeController.updateRecipe)
+recipeRouter.patch('/:id', authenticate, recipeController.updateRecipe)
 
-router.delete('/:id', recipeController.deleteRecipe)
+recipeRouter.delete('/:id', authenticate, recipeController.deleteRecipe)
 
-module.exports = router ;
+module.exports = recipeRouter ;
