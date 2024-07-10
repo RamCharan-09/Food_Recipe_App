@@ -3,7 +3,9 @@ const recipeRouter = express.Router()
 const recipeController = require('../controllers/recipe')
 const { authenticate } = require('../middlewares/authMiddleware')
 
-recipeRouter.get('/', authenticate, recipeController.getAllRecipes)
+recipeRouter.get('/', recipeController.getAllRecipes)
+
+recipeRouter.get('/:id', recipeController.getRecipesById)
 
 recipeRouter.post('/', authenticate, recipeController.createRecipe)
 

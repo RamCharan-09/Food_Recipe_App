@@ -1,6 +1,7 @@
 const express = require('express');
 const connectMongoDB = require('./config/dbConnect')
 const recipeRoutes = require('./routes/recipe');
+const cors = require('cors');
 require('dotenv').config();
 const authRoutes = require('./routes/auth')
 
@@ -9,7 +10,14 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 8000;
 
-connectMongoDB()
+connectMongoDB();
+
+app.use(cors({
+    origin :[
+        "http://localhost:3000"
+    ],
+    credentials : true
+}))
 
 //Routes
 app.use('/api/recipe', recipeRoutes)

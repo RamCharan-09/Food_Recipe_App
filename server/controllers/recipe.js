@@ -4,12 +4,23 @@ const recipe = require('../models/recipe')
 
 exports.getAllRecipes = async(req, res) => {
     try{
-        console.log(req.user)
+        // console.log(req.user)
         const allRecipes = await recipe.find()
         return res.status(200).send(allRecipes)
     } catch (error) {
         console.log('Error:', error.message)
         return res.status(400).send({message: 'Failed to fetch all recipes'})
+    }   
+}
+
+exports.getRecipesById = async(req, res) => {
+    try{
+        // console.log(req.user)
+        const Recipes = await recipe.findById(req.params._id)
+        return res.status(200).send(Recipes)
+    } catch (error) {
+        console.log('Error:', error.message)
+        return res.status(400).send({message: 'Failed to fetch the recipes'})
     }   
 }
 

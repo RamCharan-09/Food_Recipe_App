@@ -19,13 +19,22 @@ const recipeSchema = new mongoose.Schema ({
         required: true
     },
     author: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref : 'User',
         required: true
     },
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    image: {
+        data: Buffer, // This will store the image data
+        contentType: String // This will store the image MIME type
+    },
+    defaultImage: {
+        type: String, // This will store a URL or file path for the default image
+        default: 'food-recipe/public/default-image.jpg' // Example default image path
+    },
 });
 
 module.exports = mongoose.model("recipe", recipeSchema)
