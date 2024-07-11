@@ -8,11 +8,13 @@ exports.authenticate = async (req, res, next) => {
             "Any_string_that_is_secret_key",
             (error, decoded) => {
                 if (error) {
+                    console.log(error)
                     return res.status(401).send({
                         isLoggedIn: false,
                         message: "failed to authenticate "
                     })
                 }
+                console.log(decoded)
                 req.user = {};
                 req.user.id = decoded.id;
                 req.user.username = decoded.username;
