@@ -25,7 +25,7 @@ const Login = ({ setToken }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/login",
+        "https://recipe-server-red.vercel.app/api/login",
         credentials
       );
       const token = response.data.token;

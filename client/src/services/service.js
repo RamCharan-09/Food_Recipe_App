@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api/recipe'; // Update this to your server's URL if different
+const API_URL = 'https://recipe-server-red.vercel.app/api/recipe/'; // Update this to your server's URL if different
 
 
 
@@ -14,7 +14,7 @@ export const getRecipes = async () => {
 };
 
 export const getRecipeById = (id) => {
-  return axios.get(`http://localhost:8000/api/recipe/${id}`)
+  return axios.get(`https://recipe-server-red.vercel.app/api/recipe/${id}`)
     .then(response => {
       return response.data;
     })

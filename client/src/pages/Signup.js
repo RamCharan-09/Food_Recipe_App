@@ -26,7 +26,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/register', formData);
+      const response = await axios.post('https://recipe-server-red.vercel.app/api/register', formData);
       console.log('User registered:', response.data);
       navigate('/login'); // Redirect to login page
     } catch (error) {

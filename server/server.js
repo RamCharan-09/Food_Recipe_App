@@ -18,7 +18,7 @@ connectMongoDB();
 
 app.use(cors({
     origin :[
-        "http://localhost:3000"
+        "https://recipe-client-bice.vercel.app"
     ],
     credentials : true
 }))
@@ -26,11 +26,14 @@ app.use(cors({
 //Routes
 app.use('/api/recipe', recipeRoutes)
 app.use('/api', authRoutes);
-
+app.get("/", async (req, res) => {
+    return res.status(200).json({ message: "Recipe app server is up and running!"})
+});
 
 app.listen(PORT, () =>
     {
         console.log(`Recipe app Server is  listening on port : ${PORT}`)
     }
 )
+
 

@@ -17,7 +17,7 @@ exports.getAllRecipes = async(req, res) => {
 exports.getRecipesById = async(req, res) => {
     try{
         // console.log(req.user)
-        const Recipes = await recipe.findById(req.params._id)
+        const Recipes = await recipe.findOne({_id:req.params.id})
         return res.status(200).send(Recipes)
     } catch (error) {
         console.log('Error:', error.message)

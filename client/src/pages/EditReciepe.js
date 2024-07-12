@@ -22,7 +22,7 @@ const EditRecipe = ({ token }) => {
     const fetchRecipeById = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/recipe/${id}`
+          `https://recipe-server-red.vercel.app/api/recipe/${id}`
         );
         setRecipeData(response.data);
         setLoading(false);
@@ -65,7 +65,7 @@ const EditRecipe = ({ token }) => {
     formData.append("steps", recipeData.steps);
     formData.append("image", recipeData.image);
 
-    const API_URL = "http://localhost:8000/api/recipe/" + id; // Update with your server's API URL
+    const API_URL = "https://recipe-server-red.vercel.app/api/recipe/" + id; // Update with your server's API URL
 
     axios
       .patch(API_URL, formData, {

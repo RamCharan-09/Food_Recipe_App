@@ -32,7 +32,7 @@ const RecipeCard = ({ recipe }) => {
 
   async function deleteRecipe() {
     axios
-      .delete("http://localhost:8000/api/recipe/" + recipe._id, {
+      .delete("https://recipe-server-red.vercel.app/" + recipe._id, {
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
         },
@@ -49,7 +49,7 @@ const RecipeCard = ({ recipe }) => {
     setLike(!like);
     setLikes(like ? likes - 1 : likes + 1);
 
-    const API_URL = "http://localhost:8000/api/recipe/like/" + recipe._id; // Update with your server's API URL
+    const API_URL = "https://recipe-server-red.vercel.app/api/recipe/like/" + recipe._id; // Update with your server's API URL
 
     const token = localStorage.getItem("token");
 

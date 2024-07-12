@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import "./CreateRecipe.css";
 
-const API_URL = "http://localhost:8000/api/recipe"; // Update with your server's API URL
+const API_URL = "https://recipe-server-red.vercel.app/api/recipe"; // Update with your server's API URL
 
 const CreateRecipe = ({ token }) => {
   const navigate = useNavigate();
